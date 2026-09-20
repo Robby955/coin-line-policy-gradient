@@ -1,0 +1,1 @@
+Local preprint and reproducible research companion. No venue, deadline, anonymity requirement, or page limit has been selected. Review mathematical correctness, claim scope, clarity and evidence. No publication action is authorized in this review task.

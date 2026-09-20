@@ -13,7 +13,9 @@ It claims a two-sided order bound
     n = ceil((L+1)/2), r = L+1-n, M = n^2(1+L^2)+r^2.
 
 Read [the manuscript](paper/coin-line-rates.pdf) for the proof and scope.
-[STATUS.md](STATUS.md) records the review status. The original qualitative
+[STATUS.md](STATUS.md) records the review status; the
+[full-manuscript audit](review/consolidated-final/README.md) and revision
+confirmation both returned valid. The original qualitative
 O87 submission is [MAIS issue #35](https://github.com/lionellevine/MAIS/issues/35).
 This extension has not been posted or accepted upstream.
 

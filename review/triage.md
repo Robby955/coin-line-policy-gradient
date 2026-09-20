@@ -40,3 +40,9 @@ This avoids duplicating the same path-class exponent argument.
 No critical or major review issue remains open. The sharp limiting prefactor,
 random initializations, permanent correction, and discrete/sampled updates
 remain outside the theorem rather than deferred proof gaps in its statement.
+
+## Subsequent consolidated review
+
+A fresh audit of the complete manuscript and a check of the complete revised
+source both returned valid. See consolidated-final/README.md for the exact
+versions and reports. The final paper has no identified blocking proof gap.

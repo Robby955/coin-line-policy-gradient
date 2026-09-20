@@ -2,8 +2,8 @@
   "exponents": [
     {
       "L": 4,
-      "conjectured_exponent_exact": "157/138",
-      "conjectured_exponent": 1.1376811594202898,
+      "theorem_exponent_exact": "157/138",
+      "theorem_exponent": 1.1376811594202898,
       "last_secant_exponent": 1.138261637564184,
       "eps_interval": [
         1e-64,
@@ -12,8 +12,8 @@
     },
     {
       "L": 5,
-      "conjectured_exponent_exact": "81/73",
-      "conjectured_exponent": 1.1095890410958904,
+      "theorem_exponent_exact": "81/73",
+      "theorem_exponent": 1.1095890410958904,
       "last_secant_exponent": 1.1101631094511022,
       "eps_interval": [
         1e-64,
@@ -22,8 +22,8 @@
     },
     {
       "L": 6,
-      "conjectured_exponent_exact": "601/567",
-      "conjectured_exponent": 1.0599647266313934,
+      "theorem_exponent_exact": "601/567",
+      "theorem_exponent": 1.0599647266313934,
       "last_secant_exponent": 1.0615512615659894,
       "eps_interval": [
         1e-64,

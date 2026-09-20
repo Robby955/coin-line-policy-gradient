@@ -12,7 +12,7 @@ ROOT=Path(__file__).resolve().parent
 def read(name):
     return [json.loads(s) for s in (ROOT/'results'/name).read_text().splitlines()]
 
-def predicted(L):
+def theorem_exponent(L):
     n=(L+2)//2
     r=n-int(L%2==0)
     norm=n*n*(1+L*L)+r*r
@@ -34,14 +34,14 @@ def main():
         x=np.log([1/r['eps'] for r in part])
         y=np.log([r['t_cross'] for r in part])
         slope=np.diff(y)/np.diff(x)
-        alpha=predicted(L)
-        line,=axes[0].plot(x/np.log(10),y/np.log(10),'o-',label=f'L={L}')
-        axes[1].plot((x[1:]+x[:-1])/(2*np.log(10)),slope,'o-',color=line.get_color(),label=f'L={L}')
+        alpha=theorem_exponent(L)
+        line,=axes[0].plot(x/np.log(10),y/np.log(10),'o-',label=rf'$L={L}$')
+        axes[1].plot((x[1:]+x[:-1])/(2*np.log(10)),slope,'o-',color=line.get_color(),label=rf'$L={L}$')
         axes[1].axhline(float(alpha),ls='--',color=line.get_color(),alpha=.7)
-        summary.append({'L':L,'conjectured_exponent_exact':str(alpha),'conjectured_exponent':float(alpha),
+        summary.append({'L':L,'theorem_exponent_exact':str(alpha),'theorem_exponent':float(alpha),
                         'last_secant_exponent':float(slope[-1]),'eps_interval':[part[-2]['eps'],part[-1]['eps']]})
-    axes[0].set(xlabel='log10(1 / diversity)',ylabel='log10(first correction time)')
-    axes[1].set(xlabel='Midpoint log10(1 / diversity)',ylabel='Local log-log slope',title='Dashed: predicted exponents')
+    axes[0].set(xlabel=r'$\log_{10}(1/\varepsilon)$',ylabel=r'$\log_{10} T_\varepsilon$')
+    axes[1].set(xlabel=r'Midpoint $\log_{10}(1/\varepsilon)$',ylabel='Successive log-log slope',title='Dashed lines: theorem exponents')
     for ax in axes:ax.legend();ax.grid(alpha=.2)
     (ROOT/'output/figures').mkdir(parents=True,exist_ok=True)
     fig.savefig(ROOT/'output/figures/correction-time-scaling.png',dpi=170)

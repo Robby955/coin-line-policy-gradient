@@ -13,8 +13,9 @@ final artifact and these review records.
 
 `applied-changes.md` records the repairs and consolidation. The last editorial
 pass incorporates the upper reviewer's suggested derivation of the compact
-limiting field from the uniform approximation lemma. There was no additional
-review session after that pass. Session identifiers and model information
+limiting field from the uniform approximation lemma. A subsequent fresh full-manuscript audit and revision check are recorded in
+[consolidated-final/README.md](consolidated-final/README.md); both returned
+valid. Session identifiers and model information
 are in `chat-links.md`. Only visible reports are retained here; raw provider
 responses remain outside the companion.
 

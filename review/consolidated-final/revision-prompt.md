@@ -1,3 +1,15 @@
+coin-line-rates | local preprint | consolidated revision
+
+Review the exact revised manuscript below against your complete initial audit. Confirm J1-J4 are now explicit and correct, and check that the notation changes and added explanations introduce no mathematical error. This is the complete source, not isolated excerpts. Pay special attention to the stopped Bellman recursion, the signed Hessian estimate, the first-exit reordering, and the division by g in the clock change.
+
+Changes: F remains the exact zero-diversity failure probability in Section 2; Phi is the finite exponential proxy in Section 4. The physical ratio is varrho, the limiting ratio stays mathcal R. D_s,D_+ became chi_s,chi_+; H_0 became ell_0. Other indexed path quantities retain their locally defined names. Alpha=alpha_L is explicit. R is selected from the unperturbed probe before the tracking comparison. tau0=c/2 is fixed. K0 is selected before the common xi_* and reused in the bootstrap. Lemma 1 is cited when path probability bounds become gradient bounds. Added the exponent-balance explanation and endpoint-switch explanation. The finite-time upper bound now precedes exclusion of the non-probe exit boundaries. Numerical slope direction is described only as an observation. No further theorem or assumption is added.
+
+The main edit deliberately uses dy/dxi=f_epsilon/g, since dxi/dtau=g>0. Your J3 prose had both multiplication and division language; please verify the division in the revised equations directly.
+
+For the optional suggestion to name a single T1 in Section 2.3, the existing eventual estimates were retained: each is a fixed-L late-time bound, with no epsilon-uniform claim at issue. Give your final verdict and any residual blocking or nonblocking issues, with exact anchors. Please limit the response to 1200 words. Do not assess numerical runs or PDF rendering; those are checked separately by the editing session.
+
+COMPLETE REVISED SOURCE
+
 \documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm}

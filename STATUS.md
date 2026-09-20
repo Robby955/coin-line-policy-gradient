@@ -6,11 +6,17 @@ The manuscript gives a complete proof of
 T_epsilon = Theta_L(epsilon^(-alpha_L))
 for fixed L>=4, zero initialization, and exact Euclidean return-gradient flow.
 
-Two fresh independent model reviews (`claude-opus-5`, tools disabled) accepted
-the proof components after repairs. One reviewed the trajectory and tracking
-proofs; the other reviewed the upper bound under those inputs and the path
-facts. All those inputs are proved in the unified manuscript. The review
-reports, prompts and change log are in `review/`.
+The proof components first received two independent model reviews. A third,
+fresh session then reviewed the complete consolidated manuscript from scratch
+and returned **valid**, with no mathematical gap. Four compressed arguments
+were expanded; a follow-up checked the complete revised source and again
+returned **valid**, with no blocking issue. See
+[the full-manuscript review](review/consolidated-final/README.md) for exact
+inputs, visible reports, and dispositions of the remaining optional notes.
+
+The final thirteen-page PDF builds without warnings. Thirteen tests pass;
+the numerical claims match the retained runs. No manuscript edit followed
+the final confirmation. Artifact hashes are in MANIFEST.json.
 
 No human peer review, formal verification, or upstream acceptance is claimed.
 The original qualitative O87 submission is unchanged. A sharp limiting

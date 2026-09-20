@@ -24,3 +24,8 @@ Checks: 13 unit tests; reruns of ray, tracking, precision, and transition
 receipts match the retained values exactly; 27 uniform-approximation diagnostics
 cover both signs of b and b=0. Build and final artifact hashes are recorded in
 the companion manifest and local completion receipt.
+
+A later end-to-end audit of the consolidated manuscript and a revision
+confirmation both returned valid. See consolidated-final/README.md. That
+pass expands the Bellman and Hessian derivations, clarifies the time change,
+and distinguishes the exact failure probability from its approximation.
