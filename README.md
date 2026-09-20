@@ -25,7 +25,7 @@ Fix an integer $L\ge 4$. For exact Euclidean return-gradient flow from
 **zero initialization**, the first probe-correction time satisfies
 
 $$
-T_\varepsilon=\Theta_L\!\left(\varepsilon^{-\alpha_L}\right)
+T_\varepsilon=\Theta_L\left(\varepsilon^{-\alpha_L}\right)
 \qquad (\varepsilon\downarrow 0),
 $$
 
@@ -51,10 +51,10 @@ The upper and lower constants may depend on $L$. For example:
 
 ![Correction times for L = 4, 5, and 6 on logarithmic axes; successive slopes approach the corresponding theorem exponents.](output/figures/correction-time-scaling.png)
 
-*Left: first correction times from numerical integration. Right: successive
+**Figure 1.** Left: first correction times from numerical integration. Right: successive
 log–log slopes, with the theorem exponents dashed. Thirty retained runs cover
 $\varepsilon=10^{-2}$ through $10^{-96}$; numerical evidence illustrates the
-asymptotic result. The proof is in the paper.*
+asymptotic result. The proof is in the paper.
 
 ## Model and proof
 

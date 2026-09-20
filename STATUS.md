@@ -5,7 +5,7 @@ Version 0.1.0 preprint and companion, September 19, 2026.
 The manuscript gives a complete proof of
 
 $$
-T_\varepsilon=\Theta_L\!\left(\varepsilon^{-\alpha_L}\right)
+T_\varepsilon=\Theta_L\left(\varepsilon^{-\alpha_L}\right)
 $$
 
 for fixed $L\ge 4$, zero initialization, and exact Euclidean return-gradient flow.
