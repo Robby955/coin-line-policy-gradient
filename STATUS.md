@@ -3,8 +3,12 @@
 Version 0.1.0 preprint and companion, September 19, 2026.
 
 The manuscript gives a complete proof of
-T_epsilon = Theta_L(epsilon^(-alpha_L))
-for fixed L>=4, zero initialization, and exact Euclidean return-gradient flow.
+
+$$
+T_\varepsilon=\Theta_L\!\left(\varepsilon^{-\alpha_L}\right)
+$$
+
+for fixed $L\ge 4$, zero initialization, and exact Euclidean return-gradient flow.
 
 The proof components first received two independent model reviews. A third,
 fresh session then reviewed the complete consolidated manuscript from scratch
@@ -24,6 +28,7 @@ has not been submitted to the MAIS issue thread. A sharp limiting
 prefactor, random-initialization law, permanent-correction time, and discrete
 or sampled updates are outside the theorem.
 
-Start with paper/coin-line-rates.pdf and README.md. The historical exploratory
+Start with [the paper](paper/coin-line-rates.pdf) and [research overview](README.md).
+The historical exploratory
 transition receipt remains a diagnostic; its reduced blow-up does not replace
 the uniform approximation and ratio-barrier proof in the paper.

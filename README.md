@@ -1,32 +1,94 @@
-# Correction times for linear policy gradient
+# Correction times for linear policy gradient on a coin line
 
-Rob Sneiderman
+**Rob Sneiderman** · Research preprint, 2026
 
-[Paper](paper/coin-line-rates.pdf) · [LaTeX source](paper/coin-line-rates.tex) ·
-[Version 0.1.0](https://github.com/Robby955/coin-line-policy-gradient/releases/tag/v0.1.0)
+[Read the paper](paper/coin-line-rates.pdf) ·
+[Reproduce the results](REPRODUCING.md) ·
+[Review record](STATUS.md) ·
+[Download v0.1.0](https://github.com/Robby955/coin-line-policy-gradient/releases/tag/v0.1.0)
 
-This companion studies the coin-line model from MAIS-A8. It contains the
-exact finite-horizon return and gradient, a manuscript on correction-time
-asymptotics, numerical receipts, and independent finite checks.
+[![Tests](https://github.com/Robby955/coin-line-policy-gradient/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/Robby955/coin-line-policy-gradient/actions/workflows/tests.yml)
 
-The paper concerns **zero initialization, exact Euclidean gradient flow,
-fixed integer L >= 4, and the first correction of the test-state logit**.
-It claims a two-sided order bound
+How long can a policy keep choosing the wrong action on an unseen test state,
+even when its training distribution contains examples that should correct it?
+This paper gives matching upper and lower bounds for that time in the
+[MAIS-A8 coin-line model](sources/MAIS-A8.tex), a three-parameter policy-gradient system.
 
-    T_epsilon = Theta_L(epsilon^(-alpha_L)),
-    alpha_L = M / (M - n(L+1) - 2r),
-    n = ceil((L+1)/2), r = L+1-n, M = n^2(1+L^2)+r^2.
+**Correction becomes slower than inverse training diversity.**
+As the diversity parameter $\varepsilon$ tends to zero, the first correction
+time grows as a power of $1/\varepsilon$, with an explicit exponent greater
+than one.
 
-Read [the manuscript](paper/coin-line-rates.pdf) for the proof and scope.
-[STATUS.md](STATUS.md) records the review status and links the reports.
-The original qualitative O87 submission is
-[MAIS issue #35](https://github.com/lionellevine/MAIS/issues/35).
-This manuscript is a preprint; no upstream acceptance is claimed.
+## Main result
 
-## Install and test
+Fix an integer $L\ge 4$. For exact Euclidean return-gradient flow from
+**zero initialization**, the first probe-correction time satisfies
 
-The recorded environment is Python 3.13; exact package versions are in
-`requirements.txt` and platform details in `environment.json`.
+$$
+T_\varepsilon=\Theta_L\!\left(\varepsilon^{-\alpha_L}\right)
+\qquad (\varepsilon\downarrow 0),
+$$
+
+where
+
+$$
+\alpha_L=\frac{M}{M-n(L+1)-2r}>1,
+$$
+
+$$
+n=\left\lceil\frac{L+1}{2}\right\rceil,
+\qquad r=L+1-n,
+\qquad M=n^2(1+L^2)+r^2.
+$$
+
+The upper and lower constants may depend on $L$. For example:
+
+| Line length | Exact exponent | Approximate value |
+|:---:|:---:|:---:|
+| $L=4$ | $157/138$ | 1.137681 |
+| $L=5$ | $81/73$ | 1.109589 |
+| $L=6$ | $601/567$ | 1.059965 |
+
+![Correction times for L = 4, 5, and 6 on logarithmic axes; successive slopes approach the corresponding theorem exponents.](output/figures/correction-time-scaling.png)
+
+*Left: first correction times from numerical integration. Right: successive
+log–log slopes, with the theorem exponents dashed. Thirty retained runs cover
+$\varepsilon=10^{-2}$ through $10^{-96}$; numerical evidence illustrates the
+asymptotic result. The proof is in the paper.*
+
+## Model and proof
+
+An agent moves on the sites $0,\ldots,L$, starts uniformly, and receives a
+reward for reaching a coin within $2L$ actions. Its probability of moving
+right is logistic in the position $p$ and coin location $c$, with logit
+$a+bp+dc$. Training places most coins at the right endpoint; the remaining
+mass is spread over coin locations $1,\ldots,L$. The test state places the
+coin at zero and the agent at $\lceil L/2\rceil$.
+
+The proof has three steps:
+
+1. **Find the zero-diversity trajectory.** A logarithmic asymptotic expansion
+   identifies the direction in which training drives the parameters.
+2. **Bound the time before correction.** A one-sided Hessian estimate controls
+   how long a small positive diversity tracks that trajectory.
+3. **Prove correction on the same time scale.** Failed-path expansions remain
+   valid as the position coefficient changes sign. A ratio barrier then
+   controls the trajectory through to the first probe crossing.
+
+This is a quantitative follow-up to the qualitative result discussed in
+[MAIS-O87, issue #35](https://github.com/lionellevine/MAIS/issues/35).
+The rate theorem concerns the **first correction from zero initialization**;
+random initialization, permanent correction, and discrete or sampled updates
+are outside its scope.
+
+## Code and reproducibility
+
+The companion computes the exact finite-horizon return and gradient by
+Bellman recursion. Tests compare them against independent rational path
+enumeration and check the finite algebra used in the proof. The retained
+experiments include solver comparisons and 180-digit gradient checks.
+
+With Python 3.13, from the repository root:
 
 ```sh
 python3 -m venv .venv
@@ -35,86 +97,23 @@ python -m pip install -r requirements.txt
 python -m unittest discover -v
 ```
 
-Tests compare the gradient against independent rational path enumeration,
-including saturated policies. They also check failed-path score inequalities,
-path multiplicities, the ratio-barrier identity, the region estimates, and
-correct handling of a crossing from an initially zero probe. Finite checks
-and ODE diagnostics are not formal verification of the theorems.
+The [reproduction guide](REPRODUCING.md) gives the experiment commands,
+paper build instructions, and a map from each check to its retained results.
 
-## Reproduce the rate experiments
-
-Commands below write new results under `runs/`, leaving retained receipts
-untouched. Drivers refuse to overwrite an existing output file.
-
-```sh
-OPENBLAS_NUM_THREADS=1 python correction_time.py --output runs/pilot.jsonl
-OPENBLAS_NUM_THREADS=1 python correction_time.py --powers 24 32 48 64 96 --output runs/small-diversity.jsonl
-OPENBLAS_NUM_THREADS=1 python correction_time.py --powers 32 96 --rtol 2e-11 --method RK45 --output runs/solver-comparison.jsonl
-python summarize_correction_time.py
-```
-
-The first two commands reproduce thirty runs at L=4,5,6. The third repeats
-six runs with a second solver and tighter tolerance. The summary script reads
-the dated retained results and regenerates the table and figures in
-`output/figures/`. The physical clock is t=exp(s)-1: the solver integrates
-in s, rather than taking an enormous number of physical-time steps.
-
-## Other checks
-
-```sh
-OPENBLAS_NUM_THREADS=1 python verify_zero_diversity_ray.py --output runs/zero-ray.json
-OPENBLAS_NUM_THREADS=1 python verify_tracking.py --output runs/tracking.json
-OPENBLAS_NUM_THREADS=1 python transition_model.py --output runs/transition.json
-python verify_precision.py --output runs/precision.json
-python verify_uniform_bound.py --output runs/uniform-bound.json
-python validate_saturation.py
-```
-
-The zero-ray check independently counts paths and compares the exact leading
-loss coefficient against a high-precision recurrence. The tracking check
-compares two flows and checks a Hessian bound. Its normalized-error report
-excludes scales below 1e-7, where floating-point subtraction can dominate.
-The transition model is an exploratory approximation; its finite-time escape
-is not used as a substitute for the full-flow upper-bound proof.
-
-## Build the paper
-
-From `paper/`, with a working TeX installation:
-
-```sh
-latexmk -pdf -interaction=nonstopmode -halt-on-error coin-line-rates.tex
-```
-
-## Evidence map
-
-| Claim/check | Source | Retained evidence |
-|---|---|---|
-| Return and gradient | `model.py` | rational tests in `test_model.py` |
-| First correction times | `correction_time.py` | `results/correction-time-pilot-20260919.jsonl`, `results/correction-time-small-eps-20260919.jsonl` |
-| Solver comparison | same driver, RK45 | `results/correction-time-validation-20260919.jsonl` |
-| 180-digit endpoint gradient checks | `verify_precision.py` | `results/correction-time-precision-20260919.json` |
-| Zero-diversity ray diagnostics | `verify_zero_diversity_ray.py` | `results/zero-diversity-ray-20260919.json` |
-| Perturbation diagnostics | `verify_tracking.py` | `results/tracking-diagnostics-filtered-20260919.json` |
-| Uniform approximation across b=0 | `verify_uniform_bound.py` | `results/uniform-bound-diagnostics-20260919.json` |
-| Ratio barrier and region algebra | `test_transition_bound.py` | exact finite arithmetic tests |
-| Exploratory transition model | `transition_model.py` | `results/transition-model-two-phase-20260919.json` |
-
-`MANIFEST.json` records SHA256 hashes of the paper, implementation, and
-retained evidence. `sources/receipt.json` identifies the pinned model source.
-The upstream source and its license are retained under `sources/`.
-
-## Limits
-
-The tests cover specified finite ranges; the paper supplies the general
-argument. Numerical integration is not interval-certified. No sharp limiting
-prefactor, random-initialization law, discrete-update theorem, or bound on
-permanent correction is claimed. The review record distinguishes mathematical
-arguments, model reviews, and upstream acceptance.
+| Resource | Contents |
+|:---|:---|
+| [Paper](paper/coin-line-rates.pdf) · [LaTeX source](paper/coin-line-rates.tex) | Theorem statements and complete proofs |
+| [Model](model.py) · [Correction-time driver](correction_time.py) | Exact return, gradient, and flow integration |
+| [Results](results/) · [Figures](output/figures/) | Retained numerical outputs and scaling plots |
+| [Review status](STATUS.md) | Review scope, reports, and remaining limitations |
+| [Source provenance](sources/receipt.json) · [File hashes](MANIFEST.json) | Pinned upstream model and artifact checksums |
 
 ## Citation and license
 
-Cite Rob Sneiderman, *Correction times for linear policy gradient on a coin
-line* (2026). CITATION.cff provides machine-readable metadata.
+Rob Sneiderman. *Correction times for linear policy gradient on a coin line.*
+Preprint, 2026. [Version 0.1.0](https://github.com/Robby955/coin-line-policy-gradient/releases/tag/v0.1.0).
 
-Code is MIT licensed. The paper, figures and original result data are CC BY
-4.0. See [LICENSING.md](LICENSING.md) for scope and upstream attribution.
+Citation metadata is available in [CITATION.cff](CITATION.cff).
+Code is licensed under [MIT](LICENSE); the paper, figures, and original result
+data under [CC BY 4.0](LICENSE-paper). See [licensing and attribution](LICENSING.md)
+for the upstream source terms.
