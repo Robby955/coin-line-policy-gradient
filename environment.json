@@ -1,0 +1,6 @@
+{
+  "python": "3.13.13 (v3.13.13:01104ce1beb, Apr  7 2026, 14:43:30) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "dependencies": "requirements.txt",
+  "source_commit": "7b23a8a30c0eb0b1d3b55c592ca9554256fc4805"
+}

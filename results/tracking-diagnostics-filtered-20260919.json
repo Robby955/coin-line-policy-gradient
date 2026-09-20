@@ -1,0 +1,198 @@
+{
+  "hessian_checks": [
+    {
+      "L": 4,
+      "w": [
+        0.1,
+        0.2,
+        0.5
+      ],
+      "largest_hessian_eigenvalue": 4.020079087647861e-18,
+      "upper_bound": 0.12331111642835568
+    },
+    {
+      "L": 4,
+      "w": [
+        0.5,
+        0.1,
+        2.0
+      ],
+      "largest_hessian_eigenvalue": 1.5544038185155115e-25,
+      "upper_bound": 2.3165714222383385e-12
+    },
+    {
+      "L": 4,
+      "w": [
+        -0.1,
+        -0.2,
+        0.7
+      ],
+      "largest_hessian_eigenvalue": 6.3477906560692355e-18,
+      "upper_bound": 0.17249720679762592
+    },
+    {
+      "L": 5,
+      "w": [
+        0.1,
+        0.2,
+        0.5
+      ],
+      "largest_hessian_eigenvalue": 1.2576825865418858e-18,
+      "upper_bound": 0.02112270827399925
+    },
+    {
+      "L": 5,
+      "w": [
+        0.5,
+        0.1,
+        2.0
+      ],
+      "largest_hessian_eigenvalue": 4.101186242608334e-29,
+      "upper_bound": 7.790667734074545e-16
+    },
+    {
+      "L": 5,
+      "w": [
+        -0.1,
+        -0.2,
+        0.7
+      ],
+      "largest_hessian_eigenvalue": -1.1058605535788199e-18,
+      "upper_bound": 0.03532306105584393
+    }
+  ],
+  "tracking_checks": [
+    {
+      "L": 4,
+      "eps": 1e-08,
+      "eta": 0.1,
+      "log1p_end_time": 19.114793351695496,
+      "endpoint_distance": 0.007057552819717723,
+      "endpoint_scale": 0.1980684325366653,
+      "endpoint_ratio": 0.0356318911061775,
+      "max_ratio_with_scale_above_1e_minus7": 0.1916354151982737,
+      "probe_at_endpoint": 1.802904595827784
+    },
+    {
+      "L": 4,
+      "eps": 1e-16,
+      "eta": 0.1,
+      "log1p_end_time": 38.22958670339099,
+      "endpoint_distance": 0.0009575845697789839,
+      "endpoint_scale": 0.03923110792890018,
+      "endpoint_ratio": 0.024408807712350253,
+      "max_ratio_with_scale_above_1e_minus7": 0.030453386502775768,
+      "probe_at_endpoint": 2.9178239222810376
+    },
+    {
+      "L": 4,
+      "eps": 1e-32,
+      "eta": 0.1,
+      "log1p_end_time": 76.45917340678199,
+      "endpoint_distance": 3.0061806508013526e-05,
+      "endpoint_scale": 0.0015390798293290228,
+      "endpoint_ratio": 0.019532324402639512,
+      "max_ratio_with_scale_above_1e_minus7": 0.020426891259214628,
+      "probe_at_endpoint": 4.902264967213656
+    },
+    {
+      "L": 4,
+      "eps": 1e-64,
+      "eta": 0.1,
+      "log1p_end_time": 152.91834681356397,
+      "endpoint_distance": 3.9135228964108484e-08,
+      "endpoint_scale": 2.3687667210474533e-06,
+      "endpoint_ratio": 0.016521352067460294,
+      "max_ratio_with_scale_above_1e_minus7": 0.01659071217384776,
+      "probe_at_endpoint": 8.530340169129392
+    },
+    {
+      "L": 5,
+      "eps": 1e-08,
+      "eta": 0.1,
+      "log1p_end_time": 18.597317408620402,
+      "endpoint_distance": 0.006377150931054738,
+      "endpoint_scale": 0.1901132222598938,
+      "endpoint_ratio": 0.03354396319860841,
+      "max_ratio_with_scale_above_1e_minus7": 0.18178243444478503,
+      "probe_at_endpoint": 1.9990831668141424
+    },
+    {
+      "L": 5,
+      "eps": 1e-16,
+      "eta": 0.1,
+      "log1p_end_time": 37.194634817240804,
+      "endpoint_distance": 0.0008297845483565303,
+      "endpoint_scale": 0.036143041080304215,
+      "endpoint_ratio": 0.02295834892567225,
+      "max_ratio_with_scale_above_1e_minus7": 0.028703097972175236,
+      "probe_at_endpoint": 3.2576304666397125
+    },
+    {
+      "L": 5,
+      "eps": 1e-32,
+      "eta": 0.1,
+      "log1p_end_time": 74.38926963448161,
+      "endpoint_distance": 2.4299604913185646e-05,
+      "endpoint_scale": 0.0013063194185325656,
+      "endpoint_ratio": 0.018601579803875414,
+      "max_ratio_with_scale_above_1e_minus7": 0.01937179835451507,
+      "probe_at_endpoint": 5.478653628500135
+    },
+    {
+      "L": 5,
+      "eps": 1e-64,
+      "eta": 0.1,
+      "log1p_end_time": 148.77853926896321,
+      "endpoint_distance": 2.7129787384629258e-08,
+      "endpoint_scale": 1.70647042323526e-06,
+      "endpoint_ratio": 0.0158981878708419,
+      "max_ratio_with_scale_above_1e_minus7": 0.015959307469370878,
+      "probe_at_endpoint": 9.485397225612886
+    },
+    {
+      "L": 6,
+      "eps": 1e-08,
+      "eta": 0.1,
+      "log1p_end_time": 17.683203754732403,
+      "endpoint_distance": 0.0064169213845808246,
+      "endpoint_scale": 0.17589677576807727,
+      "endpoint_ratio": 0.036481176852506035,
+      "max_ratio_with_scale_above_1e_minus7": 0.17149862472443841,
+      "probe_at_endpoint": 1.298389217427152
+    },
+    {
+      "L": 6,
+      "eps": 1e-16,
+      "eta": 0.1,
+      "log1p_end_time": 35.36640750946481,
+      "endpoint_distance": 0.0006482150987432222,
+      "endpoint_scale": 0.03093967924354077,
+      "endpoint_ratio": 0.02095093144440239,
+      "max_ratio_with_scale_above_1e_minus7": 0.029594107281170314,
+      "probe_at_endpoint": 1.9609421867004544
+    },
+    {
+      "L": 6,
+      "eps": 1e-32,
+      "eta": 0.1,
+      "log1p_end_time": 70.73281501892961,
+      "endpoint_distance": 1.4284293040035006e-05,
+      "endpoint_scale": 0.0009572637516931937,
+      "endpoint_ratio": 0.014922003486258792,
+      "max_ratio_with_scale_above_1e_minus7": 0.01582964767085383,
+      "probe_at_endpoint": 3.0820854742189843
+    },
+    {
+      "L": 6,
+      "eps": 1e-64,
+      "eta": 0.1,
+      "log1p_end_time": 141.46563003785923,
+      "endpoint_distance": 1.079606622348434e-08,
+      "endpoint_scale": 9.163538903057279e-07,
+      "endpoint_ratio": 0.011781546777612733,
+      "max_ratio_with_scale_above_1e_minus7": 0.011839492028775362,
+      "probe_at_endpoint": 5.0131576484758265
+    }
+  ]
+}

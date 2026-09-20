@@ -1,0 +1,66 @@
+{
+  "exponents": [
+    {
+      "L": 4,
+      "conjectured_exponent_exact": "157/138",
+      "conjectured_exponent": 1.1376811594202898,
+      "last_secant_exponent": 1.138261637564184,
+      "eps_interval": [
+        1e-64,
+        1e-96
+      ]
+    },
+    {
+      "L": 5,
+      "conjectured_exponent_exact": "81/73",
+      "conjectured_exponent": 1.1095890410958904,
+      "last_secant_exponent": 1.1101631094511022,
+      "eps_interval": [
+        1e-64,
+        1e-96
+      ]
+    },
+    {
+      "L": 6,
+      "conjectured_exponent_exact": "601/567",
+      "conjectured_exponent": 1.0599647266313934,
+      "last_secant_exponent": 1.0615512615659894,
+      "eps_interval": [
+        1e-64,
+        1e-96
+      ]
+    }
+  ],
+  "solver_comparison": [
+    {
+      "L": 4,
+      "eps": 1e-32,
+      "relative_time_change": 1.1760903362301178e-10
+    },
+    {
+      "L": 4,
+      "eps": 1e-96,
+      "relative_time_change": 2.1961432672412684e-10
+    },
+    {
+      "L": 5,
+      "eps": 1e-32,
+      "relative_time_change": 2.3490542844228912e-11
+    },
+    {
+      "L": 5,
+      "eps": 1e-96,
+      "relative_time_change": 1.2229861567902844e-10
+    },
+    {
+      "L": 6,
+      "eps": 1e-32,
+      "relative_time_change": 3.5981884138891473e-11
+    },
+    {
+      "L": 6,
+      "eps": 1e-96,
+      "relative_time_change": 4.9681148084346205e-11
+    }
+  ]
+}
