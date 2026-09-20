@@ -1,6 +1,6 @@
 # Status
 
-Local manuscript and companion, September 19, 2026. Not posted or pushed.
+Version 0.1.0 preprint and companion, September 19, 2026.
 
 The manuscript gives a complete proof of
 T_epsilon = Theta_L(epsilon^(-alpha_L))
@@ -19,7 +19,8 @@ the numerical claims match the retained runs. No manuscript edit followed
 the final confirmation. Artifact hashes are in MANIFEST.json.
 
 No human peer review, formal verification, or upstream acceptance is claimed.
-The original qualitative O87 submission is unchanged. A sharp limiting
+The original qualitative O87 submission is unchanged. This rate extension
+has not been submitted to the MAIS issue thread. A sharp limiting
 prefactor, random-initialization law, permanent-correction time, and discrete
 or sampled updates are outside the theorem.
 

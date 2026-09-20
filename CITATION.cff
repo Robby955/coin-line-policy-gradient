@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Please cite the manuscript when using these results or this companion."
+type: software
+title: "Coin-line policy gradient: correction-time research companion"
+authors:
+  - family-names: Sneiderman
+    given-names: Rob
+version: 0.1.0
+date-released: 2026-09-19
+repository-code: "https://github.com/Robby955/coin-line-policy-gradient"
+url: "https://github.com/Robby955/coin-line-policy-gradient"
+license: MIT
+preferred-citation:
+  type: unpublished
+  title: "Correction times for linear policy gradient on a coin line"
+  authors:
+    - family-names: Sneiderman
+      given-names: Rob
+  year: 2026
+  url: "https://github.com/Robby955/coin-line-policy-gradient/releases/download/v0.1.0/coin-line-rates.pdf"

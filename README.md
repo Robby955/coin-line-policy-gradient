@@ -1,5 +1,10 @@
 # Correction times for linear policy gradient
 
+Rob Sneiderman
+
+[Paper](paper/coin-line-rates.pdf) · [LaTeX source](paper/coin-line-rates.tex) ·
+[Version 0.1.0](https://github.com/Robby955/coin-line-policy-gradient/releases/tag/v0.1.0)
+
 This companion studies the coin-line model from MAIS-A8. It contains the
 exact finite-horizon return and gradient, a manuscript on correction-time
 asymptotics, numerical receipts, and independent finite checks.
@@ -13,11 +18,10 @@ It claims a two-sided order bound
     n = ceil((L+1)/2), r = L+1-n, M = n^2(1+L^2)+r^2.
 
 Read [the manuscript](paper/coin-line-rates.pdf) for the proof and scope.
-[STATUS.md](STATUS.md) records the review status; the
-[full-manuscript audit](review/consolidated-final/README.md) and revision
-confirmation both returned valid. The original qualitative
-O87 submission is [MAIS issue #35](https://github.com/lionellevine/MAIS/issues/35).
-This extension has not been posted or accepted upstream.
+[STATUS.md](STATUS.md) records the review status and links the reports.
+The original qualitative O87 submission is
+[MAIS issue #35](https://github.com/lionellevine/MAIS/issues/35).
+This manuscript is a preprint; no upstream acceptance is claimed.
 
 ## Install and test
 
@@ -106,3 +110,11 @@ argument. Numerical integration is not interval-certified. No sharp limiting
 prefactor, random-initialization law, discrete-update theorem, or bound on
 permanent correction is claimed. The review record distinguishes mathematical
 arguments, model reviews, and upstream acceptance.
+
+## Citation and license
+
+Cite Rob Sneiderman, *Correction times for linear policy gradient on a coin
+line* (2026). CITATION.cff provides machine-readable metadata.
+
+Code is MIT licensed. The paper, figures and original result data are CC BY
+4.0. See [LICENSING.md](LICENSING.md) for scope and upstream attribution.
